@@ -1,35 +1,51 @@
-import LoginPage from '../pageobjects/login.page'
-import SecurePage from '../pageobjects/secure.page'
-import AddRemovePage from '../pageobjects/add_remove.page'
+import { LoginPage, 
+    SecurePage, 
+    AddRemovePage, 
+    BasicAuthPage } from '../../imports'
+
 
 describe('My Login application', () => {
+    const loginPage = new LoginPage()
+    const securePage = new SecurePage()
     it('should login with valid credentials', async function() {
-        await LoginPage.open()
+        await loginPage.open()
 
-        await LoginPage.login('tomsmith', 'SuperSecretPassword!')
-        await expect(SecurePage.flashAlert).toBeExisting()
-        await expect(SecurePage.flashAlert).toHaveTextContaining(
+        await loginPage.login('tomsmith', 'SuperSecretPassword!')
+        await expect(securePage.flashAlert).toBeExisting()
+        await expect(securePage.flashAlert).toHaveTextContaining(
             'You logged into a secure area!')
     })
 })
 
-describe.only('Add/Remove Elements page', () => {
+describe('Add/Remove Elements page', () => {
     //times to click on button
+    const addRemovePage = new AddRemovePage()
     const amountOfElements = 4
 
     beforeEach(async function() {
-        await AddRemovePage.open()
-        await AddRemovePage.addElements(amountOfElements)
+        await addRemovePage.open()
+        await addRemovePage.addElements(amountOfElements)
     })
 
     it('button ADD should add elements with exact amount', async function() {
-        await expect(AddRemovePage.addedElementsContainer).toHaveChildren(amountOfElements)
+        await expect(addRemovePage.addedElementsContainer).toHaveChildren(amountOfElements)
     })
 
-    it.only('click on added elements to delete them', async function () {
-        await AddRemovePage.deleteElements(amountOfElements)
-        await expect(AddRemovePage.addedElementsContainer).toHaveChildren(0)
+    it('click on added elements to delete them', async function () {
+        await addRemovePage.deleteElements(amountOfElements)
+        await expect(addRemovePage.addedElementsContainer).toHaveChildren(0)
     })
 })
 
+describe('Basic Auth', function() {
+    const basicAuthPage = new BasicAuthPage()
+
+    beforeEach(async function() {
+        await basicAuthPage.open()
+    })
+
+    it('should auth with propper xredentials', async function () {
+        await basicAuthPage.auth()
+    })
+})
 

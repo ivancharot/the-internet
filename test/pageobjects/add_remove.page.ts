@@ -1,10 +1,8 @@
 
-
-import { error } from 'console'
 import Page from './page'
 
 
-class AddRemovePage extends Page {
+export class AddRemovePage extends Page {
 
     get addButton () {
         return $('.example>button')
@@ -38,4 +36,4 @@ class AddRemovePage extends Page {
     }
 }
 
-export default new AddRemovePage()
+// export default  new AddRemovePage()

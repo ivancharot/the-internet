@@ -3,7 +3,7 @@
 import Page from './page'
 
 
-class LoginPage extends Page {
+export class LoginPage extends Page {
     get inputUsername () {
         return $('#username');
     }
@@ -27,4 +27,4 @@ class LoginPage extends Page {
 
 }
 
-export default new LoginPage()
+// export default new LoginPage()

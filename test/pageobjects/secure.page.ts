@@ -3,12 +3,12 @@
 import Page from './page'
 
 
-class SecurePage extends Page {
+export class SecurePage extends Page {
     get flashAlert () {
         return $('#flash');
     }
 }
 
-export default new SecurePage()
+// export default new SecurePage()
 
 
