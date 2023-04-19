@@ -18,8 +18,8 @@ describe('My Login application', () => {
 })
 
 describe('Add/Remove Elements page', () => {
-    //times to click on button
     const addRemovePage = new AddRemovePage()
+        //times to click on button
     const amountOfElements = 4
 
     beforeEach(async function() {
@@ -44,8 +44,11 @@ describe('Basic Auth', function() {
         await basicAuthPage.open()
     })
 
-    it('should auth with propper xredentials', async function () {
+    it('should auth with propper credentials', async function () {
         await basicAuthPage.auth()
+        expect(await basicAuthPage.grats).toHaveTextContaining(
+            'Congratulations! You must have the proper credentials.'
+        )
     })
 })
 
