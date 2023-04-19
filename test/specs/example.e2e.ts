@@ -46,7 +46,7 @@ describe('Basic Auth', function() {
 
     it('should auth with propper credentials', async function () {
         await basicAuthPage.auth()
-        expect(await basicAuthPage.grats).toHaveTextContaining(
+        await expect(basicAuthPage.grats).toHaveTextContaining(
             'Congratulations! You must have the proper credentials.'
         )
     })
