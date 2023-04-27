@@ -35,5 +35,3 @@ export class AddRemovePage extends Page {
         return super.open('add_remove_elements/')
     }
 }
-
-// export default  new AddRemovePage()

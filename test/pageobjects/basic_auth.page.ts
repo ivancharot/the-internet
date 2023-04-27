@@ -1,3 +1,4 @@
+
 import Page from "./page";
 
 
@@ -17,5 +18,3 @@ export class BasicAuthPage extends Page {
         return super.open('basic_auth')
     }
 }
-
-// export default new BasicAuthPage()

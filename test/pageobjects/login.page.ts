@@ -1,5 +1,4 @@
 
-
 import Page from './page'
 
 
@@ -26,5 +25,3 @@ export class LoginPage extends Page {
     }
 
 }
-
-// export default new LoginPage()

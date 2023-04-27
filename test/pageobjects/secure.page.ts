@@ -1,5 +1,4 @@
 
-
 import Page from './page'
 
 
@@ -8,7 +7,5 @@ export class SecurePage extends Page {
         return $('#flash');
     }
 }
-
-// export default new SecurePage()
 
 
